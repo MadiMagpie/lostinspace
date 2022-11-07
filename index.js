@@ -4,8 +4,8 @@ const app = express()
 var serveStatic = require('serve-static')
 var path = require('path')
 
-app.use(serveStatic(path.join(__dirname, 'svgs/*')))
-app.use(serveStatic(path.join(__dirname, 'css/style.css')))
+app.use(serveStatic(path.join(__dirname, 'Public')))
+app.use(serveStatic(path.join(__dirname, 'public/css')))
 
 app.get('/api', (request, response) => {
     db.all('SELECT * FROM leaderboard ORDER BY score DESC', (err, rows) => {
@@ -48,6 +48,7 @@ app.get('/', (req, res) => {
 app.post('/home', (req, res) => {
     console.log(req.body)
     res.sendFile(homepagePath)
+    
 })
 
 
@@ -56,7 +57,7 @@ app.get('/game', (req, res) => {
     res.sendFile(gamepagePath)
 })
 
-app.post('/howto', (req, res) => {
+app.get('/howto', (req, res) => {
     console.log(req.body)
     res.sendFile(howtoplayPath)
 })
@@ -110,5 +111,5 @@ app.post('/leaderboard', (req, res) => {
 })
 
 
-app.listen(3000)
+app.listen(3001)
 
