@@ -5,6 +5,8 @@ const app = express()
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// app.use(express.static(__dirname + '/public')); // for static files (public folder)
+
 const startpagePath = __dirname + '/login.html'
 const homepagePath = __dirname + '/home.html'
 const gamepagePath = __dirname + '/index.html'

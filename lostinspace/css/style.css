@@ -88,6 +88,8 @@ body {
        }
 }
 
+/* HOMEPAGE SECTION */
+
 .loginbutton {
        width: 160px;
        height: 40px;
@@ -122,3 +124,79 @@ body {
        color: #DB504A;
        font-family: 'Space Grotesk', sans-serif;
 }
+
+.background_image {
+       background-image: url("svgs/spacebg.svg")
+}
+
+p {
+       color: white;
+       margin-top: 1px;
+}
+
+.top {
+       display: flex;
+}
+
+.middle {
+       width: 100vw;
+       height: 60vh;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+}
+
+.bottom {
+       width: 100vw;
+       display: flex;
+       align-items: center;
+       flex-direction: column;
+}
+
+.header {
+       color: white;
+}
+
+/* BUTTONS */
+
+.top {
+       display: flex;
+}
+
+.top_buttons {
+       display: flex;
+       flex-direction: column;
+       justify-content: flex-end;
+       margin-left: auto;
+       margin-right: 0;
+}
+
+.home_buttons {
+       color: white;
+       background-color: brown;
+       height: 4vh;
+       width: 100px;
+       border: none;
+       border-radius: 10px;
+}
+
+.start_button {
+       color: white;
+       background-color: brown;
+       height: 60px;
+       width: 200px;
+       border: none;
+       border-radius: 10px;
+       font-size: 40px;
+}
+
+/* CHARACTER SELECTION */
+
+.spaceman {
+       background: none;
+       border: none;
+       margin: 5px;
+}
+
+/* END OF HOMEPAGE SECTION */
