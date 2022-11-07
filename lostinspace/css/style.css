@@ -1,0 +1,124 @@
+body {
+       margin: 0;
+       overflow: hidden;
+}
+
+#score {
+       background-color: #A52A2B;
+       color: #fff;
+       border-radius: 15px;
+       padding: 10px;
+       z-index: 5;
+       top: 1vh;
+       left: 90vw;
+       position: absolute;
+}
+
+#gameOver {
+       background-color: #A52A2B;
+       color: #fff;
+       border-radius: 15px;
+       padding: 25px;
+       z-index: 5;
+       position: absolute;
+       display: none;
+}
+
+.colFlex {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+}
+
+.rowFlex {
+       display: flex;
+       flex-direction: row;
+       justify-content: space-around;
+       align-items: center;
+}
+
+.button {
+       color: black;
+       background-color: #fff;
+       border-radius: 15px;
+       border: none;
+       padding: 10px;
+       margin: 5px;
+}
+
+
+
+/* Login Page */
+
+.spacebackground {
+       background-color: black;
+       height: 100vh;
+       width: 100vw;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+}
+
+.titletext {
+       font-family: 'Space Grotesk', sans-serif;
+       color: #9FD3EE;
+       font-size: 100px;
+       margin: 100px;
+       text-shadow: 1px 1px 2px #DB504A, 0 0 0.05em #FFEC76, 0 0 0.03em #CCCCCC;
+}
+
+.titletext:hover {
+       animation: pulse 1s infinite;
+       animation-timing-function: linear;
+}
+
+@keyframes pulse {
+       0% {
+              transform: scale(1);
+       }
+
+       50% {
+              transform: scale(1.05);
+       }
+
+       100% {
+              transform: scale(1);
+       }
+}
+
+.loginbutton {
+       width: 160px;
+       height: 40px;
+       border-radius: 20px;
+       background-color: #9FD3EE;
+       font-weight: bold;
+       margin: 15px;
+       padding: 10px;
+       box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+       transition: all 0.3s ease 0s;
+}
+
+.loginbutton:hover {
+       background-color: #000000;
+       box-shadow: 0px 15px 25px rgba(159, 211, 238, 0.2);
+       color: white;
+       transform: translateY(-2px);
+}
+
+.inputname {
+       color: black;
+       text-align: center;
+       width: 200px;
+       height: 35px;
+       border-radius: 20px;
+       background-color: #FFEC76;
+       font-family: 'Space Grotesk', sans-serif;
+}
+
+.nameprompt {
+       font-size: 20px;
+       color: #DB504A;
+       font-family: 'Space Grotesk', sans-serif;
+}
