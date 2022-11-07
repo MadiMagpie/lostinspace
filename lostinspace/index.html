@@ -1,0 +1,36 @@
+<!DOCTYPE htm"l>
+<html lang = "en">
+       <head>
+              <meta charset = "UFT-8">
+              <meta name = "viewport" content = "width = device-width, initial-scale=1.0">
+              <title>Lost in Space</title>
+              <link rel = "stylesheet" href = "style.css">
+       </head>
+
+       <body class = "colFlex">
+              <p id = "score">
+                     Score: 0
+              </p>
+              <div class = "colFlex" id = "gameOver">
+                     <h1>Game Over</h1>
+                     <p id = "finalScore">
+                            Score: 0
+                     </p>
+                     <div class = "rowFlex">
+
+                            <button class = "button" id = "homeButton">
+                            Go Home
+                            </button>
+                            <button class = "button" id = "playAgainButton">
+                            Play Again
+                            </button>
+                     </div>
+              </div>
+              <canvas id = "canvas" width = "100vw" height = "100vh"></canvas>
+              <script src = "astronaut.js"></script>
+              <script src = "obstacles.js"></script>
+              <script src = "stars.js"></script>
+              <script src = "main.js"></script>
+              
+       </body>
+</html>
