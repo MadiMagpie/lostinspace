@@ -1,4 +1,4 @@
-class Astronaut{
+       class Astronaut{
        constructor(){
               this.x = 150;
               this.y = 200;
