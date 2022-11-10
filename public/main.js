@@ -5,7 +5,7 @@ ctx.imageSmoothingEnabled = false;
 let keyPressed = false;
 let frame = 0;
 let currentScore = 0;
-let gamespeed = 2; 
+let gamespeed = 3; 
 
 
 const background = new Image();
@@ -43,7 +43,7 @@ function animate(){
        handlePoints();
        if (handleCollision()) return;
        requestAnimationFrame(animate);
-       frame++;
+       frame+=1;
 }
 animate();
 
@@ -67,7 +67,7 @@ function handleCollision(){
        for(let i = 0; i < obstacleArray.length; i++){
               if ((obstacleArray[i].x < astronaut.x + astronaut.width/2) &&
               (obstacleArray[i].x + obstacleArray[i].width/2 > astronaut.x) &&
-              (obstacleArray[i].ylocation < astronaut.y + astronaut.height) &&
+              (obstacleArray[i].ylocation < astronaut.y + astronaut.height/1.5) &&
               (obstacleArray[i].ylocation + obstacleArray[i].height > astronaut.y))
               {
                      handleGameOver();
