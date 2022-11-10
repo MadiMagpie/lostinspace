@@ -37,7 +37,8 @@ const homepagePath = __dirname + '/home.html'
 const gamepagePath = __dirname + '/index.html'
 const leaderboardPath = __dirname + '/leaderboard.html'
 const howtoplayPath = __dirname + '/howtoplay.html'
-
+// const suit = res.body.suit
+// const score = res.body.score
 
 app.get('/', (req, res) => {
     res.sendFile(startpagePath)
@@ -47,14 +48,17 @@ app.get('/', (req, res) => {
 // this pushes login page to home page
 app.post('/home', (req, res) => {
     console.log(req.body)
-    res.sendFile(homepagePath)
-    
+    res.sendFile(homepagePath, {name: req.body.name})
 })
 
+app.post('/game', (req, res) => {
+    console.log(req.body)
+    res.sendFile(gamepagePath, {suit: req.body.suit})
+})
 
 app.get('/game', (req, res) => {
     console.log(req.body)
-    res.sendFile(gamepagePath)
+    res.sendFile(gamepagePath, {score: req.body.score})
 })
 
 app.get('/howto', (req, res) => {
@@ -67,16 +71,16 @@ app.get('/home', (req, res) => {
     res.sendFile(homepagePath)
 })
 
-app.get('/', (req, res) => {
-    const name = req.query.name
-    db.run ('INSERT INTO leaderboard (name, score) VALUES (?, ?)', [name, 0], (err) => {
-        if (err) {
-            res.send('Error')
-        } else {
-            res.send('Success')
-        }
-    })
-})
+// app.get('/', (req, res) => {
+//     const name = req.query.name
+//     db.run ('INSERT INTO leaderboard (name, score) VALUES (?, ?)', [name, 0], (err) => {
+//         if (err) {
+//             res.send('Error')
+//         } else {
+//             res.send('Success')
+//         }
+//     })
+// })
 
 app.get('/updateuser', (req, res) => {
     const name = req.query.name

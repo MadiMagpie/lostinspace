@@ -22,12 +22,54 @@
             <p> <a href="/howto"> <button class="home_buttons">How to Play</button> </a> </p>
         </div>
     </div>
+                <form action="/game" method="post">
     <div class="middle">
         <h1 class="header">Welcome, User</h1>
+
+    <!-- <div class="difficulty">
+        <h2 class="subheader">Choose your difficulty</h2>
+        <input type="radio" id="easy" name="difficulty" value="easy">
+        <label for="easy">Easy</label><br>
+        <input type="radio" id="normal" name="difficulty" value="normal">
+        <label for="normal">Normal</label><br>
+        <input type="radio" id="expert" name="difficulty" value="expert">
+        <label for="expert">Expert</label><br>
+    </div> -->
+
         <h3 class="header">Select Your Character</h3>
-            <div class="select_char">
-                <!-- <form action="/idk" method="post"> -->
-                <button class="spaceman">
+            <div class="select_char"> 
+                <input type="radio" class='hideRadio' id="white" name="suit" value="white">
+                    <label for="white">
+                        <img src="svgs/spaceman_w1.svg" alt="astronaut_white" width="100px"> 
+                    </label>
+                   
+                
+                <input type="radio" class='hideRadio' id="blue" name="suit" display='none' value="blue">
+                    <label for="blue">
+                        <img src="svgs/spaceman_b1.svg" alt="astronaut_blue" width="100px">
+                    </label>
+
+                <input type="radio" class='hideRadio' id="red" name="suit" value="red">
+                    <label for="red">
+                        <img src="svgs/spaceman_r1.svg" alt="astronaut_red" width="100px">
+                    </label>
+
+                <input type="radio" class='hideRadio' id="green" name="suit" value="green">
+                    <label for="green">
+                        <img src="svgs/spaceman_g1.svg" alt="astronaut_green" width="100px">
+                    </label>
+                    </div>
+                    </div>
+    
+    <div class="bottom">
+
+                    <button class="start_button" type="submit" value="Start">
+                        Start
+                    </button>
+                    </div>
+                </form>
+            </div>
+                <!-- <button class="spaceman">
                     <img src="svgs/spaceman_w1.svg" alt="astronaut_white" width="100px">
                 </button>
                 <button class="spaceman">
@@ -39,14 +81,15 @@
                 <button class="spaceman">
                     <img src="svgs/spaceman_g1.svg" alt="astronaut_green" width="100px">
                 </button>
-                <!-- </form> -->
-            </div>
-    </div>
-</div>
-    <div class="bottom">
-        <p> <a href="/game"> <button class="start_button">Start</button> </a> </p>
-        <!-- <input class="start_button" method="post" type="submit" value="Start"> -->
-    </div>
+            </div> -->
+    <!-- </div>
+</div> -->
+    <!-- <div class="bottom">
+        <p> <a href="/leaderboard"> <button class="home_buttons">Leader Board</button> </a> </p>
+        <p><button class="start_button" type="submit">Start</button></p>
+        <input class="start_button" method="post" type="submit" value="Start">
+
+    </div> -->
 </body>
 
 </html>

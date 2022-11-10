@@ -20,7 +20,7 @@ class Obstacle{
 }
 
 function handleObstacle(){
-       if(frame%40  === 0 ){
+       if(frame%50  === 0 ){
               obstacleArray.unshift(new Obstacle);
        }
        for (let i = 0; i < obstacleArray.length; i++){
