@@ -200,3 +200,29 @@ p {
 }
 
 /* END OF HOMEPAGE SECTION */
+
+/* HOW TO PLAY */
+
+.sectionsContainer {
+       display: flex;
+       width:  80vw;
+       justify-content: space-around;
+}
+
+.instructionSection {
+       display: flex;
+       flex-direction: column;
+}
+
+.instructionText {
+       color: white;
+       width: 15rem;
+       margin-bottom: 3rem;
+}
+
+.instructionImg {
+       height: 13rem;
+       width: 13rem;
+}
+
+/* END OF HOW TO PLAY */
