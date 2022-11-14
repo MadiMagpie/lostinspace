@@ -233,7 +233,7 @@ p {
 
 /* LEADERBOARD SECTION */
 .leaderboard {
-       width: 20vh;
+       width: fit-content;
        height: 50vh;
        background-color: #DB504A;
        border-radius: 15px;
@@ -242,6 +242,7 @@ p {
        flex-direction: column;
        align-items: center;
        margin: auto;
+       padding: 5px;
 }
 
 .leaderboard h1 {
