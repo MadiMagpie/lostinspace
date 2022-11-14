@@ -30,62 +30,46 @@ app.post('/api', (request, response) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// app.use(express.static(__dirname + '/public')); // for static files (public folder)
+
 
 const startpagePath = __dirname + '/login.html'
 const homepagePath = __dirname + '/home.html'
 const gamepagePath = __dirname + '/index.html'
 const leaderboardPath = __dirname + '/leaderboard.html'
 const howtoplayPath = __dirname + '/howtoplay.html'
-// const suit = res.body.suit
-// const score = res.body.score
 
 app.get('/', (req, res) => {
+    console.log(req.body    )
     res.sendFile(startpagePath)
 })
 
-
-// this pushes login page to home page
-app.post('/home', (req, res) => {
-    console.log(req.body)
-    res.sendFile(homepagePath, {name: req.body.name})
-})
-
-app.post('/game', (req, res) => {
-    console.log(req.body)
-    res.sendFile(gamepagePath, {suit: req.body.suit})
+app.get('/home', (req, res) =>  {
+    const name = req.query.name
+    db.run ('INSERT INTO leaderboard (name, score) VALUES (?, ?)', [name, 0], (err) => {
+        if (err) {
+            res.send('Error')
+        } else {
+    console.log(req.query)
+    req.params.all 
+    res.sendFile (path.join(homepagePath))
+        }
+    })
 })
 
 app.get('/game', (req, res) => {
-    console.log(req.body)
-    res.sendFile(gamepagePath, {score: req.body.score})
+    console.log(req.query)
+    res.render(path.join(gamepagePath))
 })
 
 app.get('/howto', (req, res) => {
-    console.log(req.body)
+    console.log(req.query)
     res.sendFile(howtoplayPath)
 })
-
-app.get('/home', (req, res) => {
-    console.log(req.body)
-    res.sendFile(homepagePath)
-})
-
-// app.get('/', (req, res) => {
-//     const name = req.query.name
-//     db.run ('INSERT INTO leaderboard (name, score) VALUES (?, ?)', [name, 0], (err) => {
-//         if (err) {
-//             res.send('Error')
-//         } else {
-//             res.send('Success')
-//         }
-//     })
-// })
 
 app.get('/updateuser', (req, res) => {
     const name = req.query.name
     const score = req.query.score
-    db.run ('UPDATE leaderboard SET score = ? WHERE name = ?', [score, name], (err) => {
+    db.run ('UPDATE leaderboard GREATEST score = ? WHERE name = ?', [score, name], (err) => {
         if (err) {
             res.send('Error')
         } else {
@@ -94,26 +78,15 @@ app.get('/updateuser', (req, res) => {
     })
 })
 
-app.get('/leaderboard', (req, res) => {
-    db.all('SELECT * FROM leaderboard ORDER BY score DESC', (err, rows) => {
+app.get('/score', (req, res) => {
+    db.run('INSERT INTO leaderboard (name, score) VALUES (?, ?)', [req.query.name, req.query.score], (err) => {
         if (err) {
             console.log(err)
         } else {
-            res.send(rows)
-        }
-    })
-})
-
-app.post('/leaderboard', (req, res) => {
-    db.run('INSERT INTO leaderboard (name, score) VALUES (?, ?)', [req.body.name, req.body.score], (err) => {
-        if (err) {
-            console.log(err)
-        } else {
-            res.sendFile(leaderboardPath)
+            res.sendFile(gamepagePath)
         }
     })
 })
 
 
 app.listen(3000)
-
