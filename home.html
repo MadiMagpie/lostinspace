@@ -14,17 +14,20 @@
 <body class="background_image">
     <div class="background_image">
     <div class="top">
-        <div class="back_button">
+        <!-- <div class="back_button">
             <p> <a href="/"> <button class="home_buttons">Back</button> </a> </p>
-        </div>
+        </div> -->
         <div class="top_buttons">
-            <p> <a href="/leaderboard"> <button class="home_buttons">Leader Board</button> </a> </p>
+            <!-- <p> <a href="/leaderboard"> <button class="home_buttons">Leader Board</button> </a> </p> -->
             <p> <a href="/howto"> <button class="home_buttons">How to Play</button> </a> </p>
         </div>
     </div>
                 <form action="/game" method="get">
     <div class="middle">
-        <h1 class="header">Welcome, </h1>
+        <h1 class="titletext">Lost in Space</h1>
+        <h2 class="nameprompt">Welcome Astronaut, what is your name?</h2>
+        
+        <input class="inputname" type="text" id="username" name="name" placeholder="Enter your name" />
 
     <!-- <div class="difficulty">
         <h2 class="subheader">Choose your difficulty</h2>
@@ -58,36 +61,18 @@
                     <label for="green">
                         <img src="svgs/spaceman_g1.svg" alt="astronaut_green" width="100px">
                     </label>
-                    </div>
+                    </div> <button class="start_button" type="submit" value="Start">
+                        Start
+                    </button>
+                    <p> <a href="/leaderboard"> <button class="home_buttons">Leaderboard</button> </a> </p>
                     </div>
     
     <div class="bottom">
 
-                    <button class="start_button" type="submit" value="Start">
-                        Start
-                    </button>
+                   
                     </div>
                 </form>
             </div>
-                <!-- <button class="spaceman">
-                    <img src="svgs/spaceman_w1.svg" alt="astronaut_white" width="100px">
-                </button>
-                <button class="spaceman">
-                    <img src="svgs/spaceman_b1.svg" alt="astronaut_blue" width="100px">
-                </button>
-                <button class="spaceman">
-                    <img src="svgs/spaceman_r1.svg" alt="astronaut_red" width="100px">
-                </button>
-                <button class="spaceman">
-                    <img src="svgs/spaceman_g1.svg" alt="astronaut_green" width="100px">
-                </button>
-            </div> -->
-    <!-- </div>
-</div> -->
-    <!-- <div class="bottom">
-        <p> <a href="/leaderboard"> <button class="home_buttons">Leader Board</button> </a> </p>
-        <p><button class="start_button" type="submit">Start</button></p>
-        <input class="start_button" method="post" type="submit" value="Start">
 
     </div> -->
 </body>
