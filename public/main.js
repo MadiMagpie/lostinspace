@@ -1,6 +1,8 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 ctx.imageSmoothingEnabled = false;
+const name = urlParams.get('name');
+const scoreSuit = urlParams.get('suit');
 
 let keyPressed = false;
 let frame = 0;
@@ -95,6 +97,7 @@ function handleGameOver(){
        ctx.drawImage(collide, astronaut.x, astronaut.y, 50, 50);
        document.getElementById('gameOver').style.display = 'flex';
        document.getElementById('finalScore').innerText = "Final Score: " + currentScore;
+
        return true; 
 }
 
@@ -103,11 +106,28 @@ function handleRestart(){
               // document.getElementById('gameOver').style.display = 'none';
               // obstacleArray = [];
               // starArray = [];
-              // currentScore = 0;
-              location.reload();
+              // currentScore = 0; 
+        
+       window.location.href = `/score?name=${name}&suit=${scoreSuit}&score=${currentScore}`;
 }
 
+window.addEventListener('keydown', function(e){
+       if (e.code === 'R') handleRestart();
+} )
 function handleHome(){
        //return home 
 }
 
+function toggleMute() {
+       var myAudio = document.getElementById('audio');
+       myAudio.muted = !myAudio.muted;
+       console.log(myAudio.muted);
+       if (myAudio.muted){
+              document.getElementById('mute').style.display = 'none';
+              document.getElementById('unmute').style.display = 'block';
+       }
+       else{
+              document.getElementById('mute').style.display = 'block';
+              document.getElementById('unmute').style.display = 'none';
+       }
+    }
