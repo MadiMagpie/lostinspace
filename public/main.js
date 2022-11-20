@@ -107,11 +107,27 @@ function handleRestart(){
               // obstacleArray = [];
               // starArray = [];
               // currentScore = 0; 
-              
+        
        window.location.href = `/score?name=${name}&suit=${scoreSuit}&score=${currentScore}`;
 }
 
+window.addEventListener('keydown', function(e){
+       if (e.code === 'R') handleRestart();
+} )
 function handleHome(){
        //return home 
 }
 
+function toggleMute() {
+       var myAudio = document.getElementById('audio');
+       myAudio.muted = !myAudio.muted;
+       console.log(myAudio.muted);
+       if (myAudio.muted){
+              document.getElementById('mute').style.display = 'none';
+              document.getElementById('unmute').style.display = 'block';
+       }
+       else{
+              document.getElementById('mute').style.display = 'block';
+              document.getElementById('unmute').style.display = 'none';
+       }
+    }

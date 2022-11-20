@@ -38,19 +38,19 @@ class Astronaut{
        
        draw(){
               const astro = new Image();
-              if (suit == 'white'){
-                     astro.src = white;
-              }
-              if (suit == 'blue'){
+              // if (suit === 'white'){
+              //        astro.src = white;
+              // }
+              if (suit === 'blue'){
                      astro.src = blue;
               }
-              if (suit == 'red'){
+              if (suit === 'red'){
                      astro.src = red;
               }
-              if (suit == 'green'){
+              if (suit === 'green'){
                      astro.src = green;
               }
-              else {
+              else if(suit === 'white') {
                      astro.src = white;
               }
               ctx.drawImage(astro, this.x, this.y, this.width, this.height);

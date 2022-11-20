@@ -16,12 +16,12 @@ const gamepagePath = __dirname + '/index.html'
 const leaderboardPath = __dirname + '/leaderboard.html'
 const howtoplayPath = __dirname + '/howtoplay.html'
 
-app.get('/', (req, res) => {
-    console.log(req.body    )
+app.get('/login', (req, res) => {
+    console.log(req.body)
     res.sendFile(startpagePath)
 })
 
-app.get('/home', (req, res) =>  {
+app.get('/', (req, res) =>  {
     res.sendFile (path.join(homepagePath))
 })
 
@@ -30,6 +30,7 @@ app.get('/game', (req, res) => {
     const score = req.query.score
     db.run ('INSERT INTO leaderboard (name, score) VALUES (?, ?)', [name, score], (err) => {
     console.log(req.query)
+    console.log(req.body)
     res.sendFile(path.join(gamepagePath))
     })
 })
@@ -60,5 +61,25 @@ app.get('/data', (req, res) => {
         res.json(rows);
     });
 });
+
+app.get('/api', (req, res) => {
+    db.all('SELECT * FROM leaderboard ORDER BY score', (err, rows) => {
+        res.json(rows);
+    });
+});
+
+app.get('/setScore', (req, res) => {
+    const name = req.query.name
+    const score = req.query.score
+    if (!name || !score) return res.send('Please provide name and score')
+    db.run ('INSERT INTO leaderboard (name, score) VALUES (?, ?)', [name, score], (err) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.send(`Congrats ${name}, you changed the leaderboard`)
+        }
+    })
+});
+
 
 app.listen(3000)
