@@ -71,9 +71,13 @@ function handleCollision(){
               (obstacleArray[i].x + obstacleArray[i].width/2 > astronaut.x) &&
               (obstacleArray[i].ylocation < astronaut.y + astronaut.height/1.5) &&
               (obstacleArray[i].ylocation + obstacleArray[i].height > astronaut.y))
-              {
+              { 
+                     var crashAudio = new Audio('audio/crash.mp3');
+                     crashAudio.volume = 0.5;
+                     crashAudio.play();
                      handleGameOver();
                      return true;
+                    
               }
        }
 }
@@ -88,6 +92,8 @@ function handlePoints(){
                      starArray.pop(starArray[0]);
                      currentScore++;
                      document.getElementById('score').innerText = "Score: " + currentScore;
+                     var starAudio = new Audio('audio/star.mp3');
+                     starAudio.play();
               }
               
        }
