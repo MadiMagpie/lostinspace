@@ -131,3 +131,6 @@ function toggleMute() {
               document.getElementById('unmute').style.display = 'none';
        }
     }
+
+    var audio = document.getElementById("audio");
+       audio.volume = 0.2;

@@ -11,10 +11,14 @@
 
 <body class="colFlex">  
         <audio id="audio" autoplay loop>
-              <source src="audio/lostinspace.mp3" type="audio/mpeg">
+              <source class="audio" src="audio/lostinspace.mp3" type="audio/mpeg">
        </audio>
-       <a id="mute" onclick="toggleMute()">Mute</a>
-       <a id="unmute" onclick="toggleMute()">Unmute</a>
+       <a id="mute" onclick="toggleMute()">
+              <img width="75" height="75" src="svgs/unmuted.svg" alt="unmuted">
+       </a>
+       <a id="unmute" onclick="toggleMute()">
+              <img width="75" height="75" src="svgs/muted.svg" alt="muted">
+       </a>
        <p id="score">
               Score: 0
        </p>
