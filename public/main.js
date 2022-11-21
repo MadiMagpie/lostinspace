@@ -4,6 +4,8 @@ ctx.imageSmoothingEnabled = false;
 const name = urlParams.get('name');
 const scoreSuit = urlParams.get('suit');
 
+var starAudio = new Audio('audio/star.mp3');
+var crashAudio = new Audio('audio/crash.mp3');
 let keyPressed = false;
 let frame = 0;
 let currentScore = 0;
@@ -72,7 +74,6 @@ function handleCollision(){
               (obstacleArray[i].ylocation < astronaut.y + astronaut.height/1.5) &&
               (obstacleArray[i].ylocation + obstacleArray[i].height > astronaut.y))
               { 
-                     var crashAudio = new Audio('audio/crash.mp3');
                      crashAudio.volume = 0.5;
                      crashAudio.play();
                      handleGameOver();
@@ -92,7 +93,6 @@ function handlePoints(){
                      starArray.pop(starArray[0]);
                      currentScore++;
                      document.getElementById('score').innerText = "Score: " + currentScore;
-                     var starAudio = new Audio('audio/star.mp3');
                      starAudio.play();
               }
               
@@ -127,6 +127,8 @@ function handleHome(){
 function toggleMute() {
        var myAudio = document.getElementById('audio');
        myAudio.muted = !myAudio.muted;
+       crashAudio.muted = !crashAudio.muted;
+       starAudio.muted = !starAudio.muted;
        console.log(myAudio.muted);
        if (myAudio.muted){
               document.getElementById('mute').style.display = 'none';
