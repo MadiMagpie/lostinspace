@@ -1,7 +1,11 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 ctx.imageSmoothingEnabled = false;
+const name = urlParams.get('name');
+const scoreSuit = urlParams.get('suit');
 
+var starAudio = new Audio('audio/star.mp3');
+var crashAudio = new Audio('audio/crash.mp3');
 let keyPressed = false;
 let frame = 0;
 let currentScore = 0;
@@ -69,9 +73,12 @@ function handleCollision(){
               (obstacleArray[i].x + obstacleArray[i].width/2 > astronaut.x) &&
               (obstacleArray[i].ylocation < astronaut.y + astronaut.height/1.5) &&
               (obstacleArray[i].ylocation + obstacleArray[i].height > astronaut.y))
-              {
+              { 
+                     crashAudio.volume = 0.5;
+                     crashAudio.play();
                      handleGameOver();
                      return true;
+                    
               }
        }
 }
@@ -86,6 +93,7 @@ function handlePoints(){
                      starArray.pop(starArray[0]);
                      currentScore++;
                      document.getElementById('score').innerText = "Score: " + currentScore;
+                     starAudio.play();
               }
               
        }
@@ -95,6 +103,7 @@ function handleGameOver(){
        ctx.drawImage(collide, astronaut.x, astronaut.y, 50, 50);
        document.getElementById('gameOver').style.display = 'flex';
        document.getElementById('finalScore').innerText = "Final Score: " + currentScore;
+
        return true; 
 }
 
@@ -103,11 +112,33 @@ function handleRestart(){
               // document.getElementById('gameOver').style.display = 'none';
               // obstacleArray = [];
               // starArray = [];
-              // currentScore = 0;
-              location.reload();
+              // currentScore = 0; 
+        
+       window.location.href = `/score?name=${name}&suit=${scoreSuit}&score=${currentScore}`;
 }
 
+window.addEventListener('keydown', function(e){
+       if (e.code === 'R') handleRestart();
+} )
 function handleHome(){
        //return home 
 }
 
+function toggleMute() {
+       var myAudio = document.getElementById('audio');
+       myAudio.muted = !myAudio.muted;
+       crashAudio.muted = !crashAudio.muted;
+       starAudio.muted = !starAudio.muted;
+       console.log(myAudio.muted);
+       if (myAudio.muted){
+              document.getElementById('mute').style.display = 'none';
+              document.getElementById('unmute').style.display = 'block';
+       }
+       else{
+              document.getElementById('mute').style.display = 'block';
+              document.getElementById('unmute').style.display = 'none';
+       }
+    }
+
+    var audio = document.getElementById("audio");
+       audio.volume = 0.2;

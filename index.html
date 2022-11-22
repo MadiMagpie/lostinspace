@@ -6,9 +6,19 @@
        <meta name="viewport" content="width = device-width, initial-scale=1.0">
        <title>Lost in Space</title>
        <link rel="stylesheet" href="css/style.css">
+    
 </head>
 
-<body class="colFlex">
+<body class="colFlex">  
+        <audio id="audio" autoplay loop>
+              <source class="audio" src="audio/lostinspace.mp3" type="audio/mpeg">
+       </audio>
+       <a id="mute" onclick="toggleMute()">
+              <img width="75" height="75" src="svgs/unmuted.svg" alt="unmuted">
+       </a>
+       <a id="unmute" onclick="toggleMute()">
+              <img width="75" height="75" src="svgs/muted.svg" alt="muted">
+       </a>
        <p id="score">
               Score: 0
        </p>
@@ -17,14 +27,17 @@
               <p id="finalScore">
                      Score: 0
               </p>
+              <p> <a href="/leaderboard"> <button class="home_buttons" id="leaderboard_game">Leaderboard</button> </a> </p>
               <div class="rowFlex">
-                            <a href="/home" > 
-                     <button class="button" id="homeButton">
+                            <a href="/" > 
+                     <button class="button" id="homeButton"> 
                             Go Home
                      </button></a>
+                     <!-- <a href="/score" > -->
                      <button class="button" id="playAgainButton">
                             Play Again
                      </button>
+                     <!-- </a> -->
               </div>
        </div>
        <canvas id="canvas" width="100vw" height="100vh"></canvas>

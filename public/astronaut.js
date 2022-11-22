@@ -1,4 +1,15 @@
-       class Astronaut{
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const suit = urlParams.get('suit');
+
+const white = 'svgs/spaceman_w1.svg';
+const blue = 'svgs/spaceman_b1.svg';
+const red = 'svgs/spaceman_r1.svg';
+const green = 'svgs/spaceman_g1.svg';
+
+
+
+class Astronaut{
        constructor(){
               this.x = 150;
               this.y = 200;
@@ -24,9 +35,27 @@
               if (keyPressed)  this.rocket();
               
        }
+       
        draw(){
               const astro = new Image();
-              astro.src = 'svgs/spaceman1.svg';
+              if (suit === 'blue'){
+                     astro.src = blue;
+              }
+              if (suit === 'red'){
+                     astro.src = red;
+              }
+              if (suit === 'green'){
+                     astro.src = green;
+              }
+              else if(suit === 'white') {
+                     astro.src = white;
+              }
+              if (!suit){
+                     astro.src = white;
+              }
+              if (suit === 'null'){
+                     astro.src = white;
+              }
               ctx.drawImage(astro, this.x, this.y, this.width, this.height);
        }
        rocket(){
