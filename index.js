@@ -5,6 +5,7 @@ var serveStatic = require('serve-static')
 var path = require('path')
 const { get } = require('http')
 const port = process.env.PORT || 3000;
+const url = process.URL || `http:/localhost:${port}`
 
 app.use(serveStatic(path.join(__dirname, 'Public')))
 app.use(serveStatic(path.join(__dirname, 'public/css')))
@@ -83,4 +84,6 @@ app.get('/setScore', (req, res) => {
 });
 
 
-app.listen(port)
+app.listen(port, () => {
+    console.log(`Server running at ${url}`)
+})
